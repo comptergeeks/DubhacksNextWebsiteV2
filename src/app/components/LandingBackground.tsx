@@ -5,6 +5,7 @@ import { ShootingStars } from "./ui/shooting-stars";
 import { StarsBackground } from "./ui/stars-background";
 import localFont from "next/font/local";
 import { Input } from "./ui/input";
+import ScrollDown from "./customUI/ScrollDown";
 
 const generalSans = localFont({
   src: "../fonts/GeneralSans-Variable.woff2",
@@ -42,8 +43,8 @@ export function LandingPage() {
         DUBHACKS NEXT
       </h1>
       <p className="text-center z-10 text-white text-opacity-75 text-[1.25rem] leading-relaxed mb-8">
-        We are a premier organization at the University of Washington dedicated
-        to providing an
+        We are the premier organization at the University of Washington
+        dedicated to providing an
         <br />
         elite entrepreneurship experience for the most talented builders on
         campus.
@@ -62,6 +63,10 @@ export function LandingPage() {
       </div>
       <ShootingStars className="bg-[#462339] bg-opacity-23" />
       <StarsBackground />
+      <div>
+        <ScrollDown position="left" />
+        <ScrollDown position="right" />
+      </div>
     </div>
   );
 }

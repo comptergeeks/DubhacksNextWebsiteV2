@@ -18,6 +18,7 @@ const config: Config = {
       },
       animation: {
         shimmer: "shimmer 2s linear infinite",
+        "bounce-smooth": "bounce-smooth 2s ease-in-out infinite", // Updated animation
       },
       keyframes: {
         shimmer: {
@@ -27,6 +28,11 @@ const config: Config = {
           to: {
             backgroundPosition: "-200% 0",
           },
+        },
+        "bounce-smooth": {
+          // Updated keyframes
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-25px)" },
         },
       },
       boxShadow: {
@@ -42,7 +48,6 @@ function addVariablesForColors({ addBase, theme }: any) {
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
   );
-
   addBase({
     ":root": newVars,
   });
