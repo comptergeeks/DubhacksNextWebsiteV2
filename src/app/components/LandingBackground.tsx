@@ -8,6 +8,7 @@ import ScrollDown from "../../app/components/customUI/ScrollDown";
 import { FloatingNav } from "../../app/components/ui/floating-navbar";
 import FeatureCarousel from "../../app/components/customUI/FeatureCarousel";
 import { AnimatedTooltip } from "./ui/animated-tooltip";
+import { DirectionAwareHover } from "./ui/direction-aware-hover";
 
 const generalSans = localFont({
   src: "../fonts/GeneralSans-Variable.woff2",
@@ -64,7 +65,7 @@ export function LandingPage() {
       <div className="relative z-10">
         <FloatingNav />
 
-        <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20 relative">
+        <section className="min-h-screen flex flex-col items-center justify-center px-4 relative">
           <Image
             src="/logos/dubhacksnext.png"
             alt="Dubhacks Logo"
@@ -111,7 +112,7 @@ export function LandingPage() {
           </div>
         </section>
 
-        <section className=" w-screen text-white -mt-30 py-20">
+        <section className=" w-screen text-white -mt-10 py-20">
           <div className="max-w-scren mx-auto px-10">
             <FeatureCarousel />
           </div>
@@ -119,13 +120,47 @@ export function LandingPage() {
 
         <section className="w-screen text-white py-20">
           <div className="max-w-screen mx-auto px-10">
-            <div className="flex flex-col">
+            <div className="flex">
               <div className="w-[380px] mb-8">
-                <h2 className="px-4 text-6xl font-bold">the team</h2>
+                <h2 className="text-6xl font-bold">the team</h2>
               </div>
-              <div className="px-4">
+              <div className="flex flex-row -ml-24">
                 <AnimatedTooltip items={people} />
               </div>
+            </div>
+            <div className="mx-10 sm:mx-20 lg:mx-40 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {people.map((person, index) => (
+                <div key={index} className="flex items-center justify-center">
+                  <DirectionAwareHover imageUrl={person.image}>
+                    <p className="font-bold text-xl">{person.name}</p>
+                    <p className="font-normal text-sm">{person.designation}</p>
+                  </DirectionAwareHover>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className=" w-screen text-white -mt-10 py-20">
+          <div className="max-w-scren mx-auto px-10">
+            <div className="mb-8">
+              <h2 className="text-6xl font-bold">friends of next</h2>
+            </div>
+          </div>
+        </section>
+
+        <section className=" w-screen text-white -mt-10 py-20">
+          <div className="max-w-scren mx-auto px-10">
+            <div className="mb-8">
+              <h2 className="text-6xl font-bold">the tracks</h2>
+            </div>
+          </div>
+        </section>
+
+        <section className=" w-screen text-white -mt-10 py-20">
+          <div className="max-w-scren mx-auto px-10">
+            <div className="mb-8">
+              <h2 className="text-6xl font-bold">batch 3</h2>
             </div>
           </div>
         </section>
