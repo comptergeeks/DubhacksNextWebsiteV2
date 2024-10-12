@@ -1,17 +1,19 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { ShootingStars } from "./ui/shooting-stars";
-import { StarsBackground } from "./ui/stars-background";
+import { ShootingStars } from "../../app/components/ui/shooting-stars";
+import { StarsBackground } from "../../app/components/ui/stars-background";
 import localFont from "next/font/local";
-import { Input } from "./ui/input";
-import ScrollDown from "./customUI/ScrollDown";
+import { Input } from "../../app/components/ui/input";
+import ScrollDown from "../../app/components/customUI/ScrollDown";
+import { FloatingNav } from "../../app/components/ui/floating-navbar";
 
 const generalSans = localFont({
   src: "../fonts/GeneralSans-Variable.woff2",
   variable: "--font-general-sans",
   weight: "400 600 700", // This specifies regular, semi-bold, and bold weights
 });
+
 //bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400
 export function LandingPage() {
   return (
@@ -19,6 +21,7 @@ export function LandingPage() {
       className={`${generalSans.variable} font-sans h-screen rounded-md bg-neutral-900 flex flex-col items-center relative w-full`}
     >
       <div className="mt-[10rem] flex flex-col items-center justify-center z-10 mb-2">
+        <FloatingNav />
         <Image
           src="/logos/dubhacksnext.png"
           alt="Dubhacks Logo"
